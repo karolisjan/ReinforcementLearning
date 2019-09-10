@@ -7,9 +7,6 @@ from fire import Fire
 class DQN(tf.keras.Model):
     def __init__(
         self,
-        state_size: Tuple[int],
-        action_size: int,
-        learning_rate: float,
         name: str='DQN',
         **kwargs
     ):
@@ -42,6 +39,17 @@ class DQN(tf.keras.Model):
             kernel_size=[4, 4],
             strides=[2, 2],
             padding='valid'
+        )
+
+        self.conv_layer3_batchnorm = tf.keras.layers.BatchNormalization(
+            epsilon=1e-5
+        )
+
+        self.flatten = tf.keras.layers.Flatten()
+
+        self.fully_connected = tf.keras.layers.Dense(
+            units=512,
+            activation=tf.nn.elu
         )
 
 
