@@ -52,6 +52,19 @@ class DQN(tf.keras.Model):
             activation=tf.nn.elu
         )
 
+        self.output = tf.keras.layers.Dense(units=3, activation=None)
+
+    def call(self, inputs):
+        x = self.conv_layer1(inputs)
+        x = self.conv_layer1_batchnorm(x)
+        x = self.conv_layer2(x)
+        x = self.conv_layer2_batchnorm(x)
+        x = self.conv_layer3(x)
+        x = self.conv_layer3_batchnorm(x)
+        x = self.flatten(x)
+        x = self.fully_connected(x)
+        return self.output(x)
+
 
 if __name__ == "__main__":
     Fire(DQN)
