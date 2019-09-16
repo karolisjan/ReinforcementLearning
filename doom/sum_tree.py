@@ -29,6 +29,10 @@ class SumTree:
     def data(self):
         return self.__data
 
+    @property
+    def total_priority(self):
+        return self.tree[0]
+
     def add(self, priority: float, experience: object):
         '''
             Adds priority score in the sum tree and
@@ -72,7 +76,3 @@ class SumTree:
 
         data_index = index - self.capacity + 1
         return index, self.tree[index], self.data[data_index]
-
-    @property
-    def priority(self):
-        return self.tree[0]
