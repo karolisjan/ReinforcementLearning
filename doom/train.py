@@ -53,6 +53,9 @@ def main(
     game.set_depth_buffer_enabled(True)
     game.set_render_hud(True)
 
+    n_actions = game.get_available_buttons_size()
+    actions = np.identity(n_actions, dtype=int)
+
     game.init()
     game.new_episode()
     state = game.get_state()
