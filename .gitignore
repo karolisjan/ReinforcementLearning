@@ -110,3 +110,4 @@ venv.bak/
 
 tensorboard
 
+.vscode/settings.json

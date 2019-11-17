@@ -18,6 +18,9 @@ def preprocess(
     resize: Tuple=(100, 120),
     to_gray: bool=False
 ) -> np.ndarray:
+    '''
+        Helper function to preprocess game buffer.
+    '''
     out = np.copy(frame)
 
     if to_gray:
@@ -68,3 +71,6 @@ def main(
 
 if __name__ == '__main__':
     Fire(main)
+
+a = 1 + 2
+print(a)
